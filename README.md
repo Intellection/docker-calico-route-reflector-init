@@ -1,5 +1,7 @@
 # Calico Route Reflector Init
 
+[![CircleCI](https://circleci.com/gh/Intellection/docker-calico-route-reflector-init/tree/master.svg?style=svg)](https://circleci.com/gh/Intellection/docker-calico-route-reflector-init/tree/master)
+
 An [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) that configures a Kubernetes node to act as a Calico [BGP route reflector](https://docs.projectcalico.org/v3.9/networking/routereflector#content-main).
 
 ## Overview
