@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 : ${KUBERNETES_NODE_NAME:?"You need to set the KUBERNETES_NODE_NAME environment variable."}
 : ${CALICO_ROUTE_REFLECTOR_CLUSTER_ID:?"You need to set the CALICO_ROUTE_REFLECTOR_CLUSTER_ID environment variable."}
 : ${CALICO_ROUTE_REFLECTOR_LABEL_NAME:?"You need to set the CALICO_ROUTE_REFLECTOR_LABEL_NAME environment variable."}
