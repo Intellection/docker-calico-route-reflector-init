@@ -1,0 +1,28 @@
+version: 2
+
+references:
+  environment: &environment
+    IMAGE_NAME: "zappi/calico-route-reflector-init"
+
+jobs:
+  test:
+    docker:
+      - image: docker:18.06.3-ce-git
+    environment: *environment
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+          version: 18.06.0-ce
+      - run:
+          name: "Build Image"
+          command: docker build -t $IMAGE_NAME .
+      - run:
+          name: "Test Image"
+          command: docker run --entrypoint "/bin/ls" $IMAGE_NAME init.sh
+
+workflows:
+  version: 2
+  build_test:
+    jobs:
+      - test
