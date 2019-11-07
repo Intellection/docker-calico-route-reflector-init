@@ -11,6 +11,7 @@ The container performs two tasks that automates the configuration of a node for 
 1. Applies a [label](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) to the node which should be used in [`BGPPeer`](https://docs.projectcalico.org/v3.9/reference/resources/bgppeer#bgp-peer-definition) resources to indicate which nodes should (or should not) peer with this node.
 2. Applies an [annotation](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) to the node specifying a cluster identifier, indicating that this node is a route reflector.
 
+For a detailed explanation of how route reflectors are configured, see [configuring in-cluster route reflectors](https://docs.projectcalico.org/v3.9/networking/bgp#configuring-in-cluster-route-reflectors).
 
 ## Usage
 
@@ -20,7 +21,9 @@ This should be used as an [init container](https://kubernetes.io/docs/concepts/w
 
 ### Example
 
-In this example, we're configuring the masters to be our route reflectors.
+In this example, we're configuring the masters to be our route reflectors, as part of the [choose and labels nodes](https://docs.projectcalico.org/v3.9/getting-started/kubernetes/hardway/configure-bgp-peering#choose-and-label-nodes) section of [Calico the hard way](https://docs.projectcalico.org/v3.9/getting-started/kubernetes/hardway).
+
+
 
 ```yaml
 kind: DaemonSet
@@ -75,6 +78,7 @@ spec:
         node-role.kubernetes.io/node: ""
 ```
 
+Once the two daemonsets are up and running, you can move on to the next step, [configuring your peering](https://docs.projectcalico.org/v3.9/getting-started/kubernetes/hardway/configure-bgp-peering).
 
 
 ## Environment Variables
