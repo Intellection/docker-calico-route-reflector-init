@@ -47,8 +47,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
-            - name: CALICO_ROUTE_REFLECTOR_LABEL
-              value: "kops.k8s.io/calico-route-reflector"
+            - name: CALICO_ROUTE_REFLECTOR_LABEL_NAME
+              value: "calico-route-reflector"
             - name: CALICO_ROUTE_REFLECTOR_CLUSTER_ID
               value: "1.1.1.1"
 ```
@@ -77,11 +77,12 @@ spec:
 
 ## Environment Variables
 
-| Name                                | Description                                                                  | Example                        | Required |
-| ------------------------------------| -----------------------------------------------------------------------------| -------------------------------|----------|
-| `KUBERNETES_NODE_NAME`              | The name of the node to be labelled and annotated.                           | `ip-10-24-101-78.ec2.internal` | Yes      |
-| `CALICO_ROUTE_REFLECTOR_LABEL`      | The name of the label to be used for peering configuration.                  | `calico-route-reflector`       | Yes      |    
-| `CALICO_ROUTE_REFLECTOR_CLUSTER_ID` | The cluster identifier to use when annotating the node as a route reflector. | `224.0.0.1`                    | Yes      |
+| Name                                 | Description                                                                  | Example                        | Required |
+| -------------------------------------| -----------------------------------------------------------------------------| -------------------------------|----------|
+| `KUBERNETES_NODE_NAME`               | The name of the node to be labelled and annotated.                           | `ip-10-24-101-78.ec2.internal` | Yes      |
+| `CALICO_ROUTE_REFLECTOR_LABEL_NAME`  | The name of the label to be used for peering configuration.                  | `calico-route-reflector`       | Yes      |
+| `CALICO_ROUTE_REFLECTOR_LABEL_VALUE` | The value of the label to be used for peering configuration.                 | `true`                         | No       |
+| `CALICO_ROUTE_REFLECTOR_CLUSTER_ID`  | The cluster identifier to use when annotating the node as a route reflector. | `224.0.0.1`                    | Yes      |
 
 
 ## Compatibility
